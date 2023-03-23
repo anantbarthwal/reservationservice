@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "rate-service", path = "/rates")
 public interface RateFienClient {
 
-    @PostMapping("/reservation")
+    @PostMapping("/reservation/create")
     public Double calculateRateForReservation(@RequestBody RateCreateRequest rateCreateRequest);
 }

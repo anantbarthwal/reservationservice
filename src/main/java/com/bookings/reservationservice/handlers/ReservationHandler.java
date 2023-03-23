@@ -18,7 +18,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class ReservationHandler {
-    private static final String CREATE_ACCOUNT_URL = "http://ACCOUNT-SERVICE/account/create";
+    public static final String CREATE_ACCOUNT_URL = "http://ACCOUNT-SERVICE/account/create";
+    public static final String CREATE_RATE_URL = "http://RATE-SERVICE/rates/reservation/create";
     @Autowired
     private ReservationRepository reservationRepository;
 
@@ -43,7 +44,9 @@ public class ReservationHandler {
         rateCreateRequest.setNightlyRoomCharge(500.0);
         rateCreateRequest.setNumberOfNights(reservationCreateRequest.getNumberOfNights());
         rateCreateRequest.setRoomTypeId(reservationCreateRequest.getRoomType());
-        Double rate = rateFienClient.calculateRateForReservation(rateCreateRequest);
+        /*Double rate = rateFienClient.calculateRateForReservation(rateCreateRequest);*/
+        HttpEntity<RateCreateRequest> rateRequest = new HttpEntity<RateCreateRequest>(rateCreateRequest, headers);
+        ResponseEntity<Double> rate = restTemplate.postForEntity(CREATE_RATE_URL, rateRequest, Double.class);
         ReservationDomain reservationDomain = new ReservationDomain(accountId, reservationCreateRequest.getUserId(),
                 null, null, null, 2);
         return reservationRepository.save(reservationDomain).toModel();
