@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class ReservationHandler {
-    private static final String CREATE_ACCOUNT_URL = "http://localhost:8080/account/create";
+    private static final String CREATE_ACCOUNT_URL = "http://ACCOUNT-SERVICE/account/create";
     @Autowired
     private ReservationRepository reservationRepository;
 
