@@ -2,8 +2,8 @@ package com.bookings.reservationservice.models;
 
 public class ReservationCreateRequest {
     private String userId;
-    private String ratePlan;
-    private String roomType;
+    private String ratePlanId;
+    private String roomTypeId;
     private Integer numberOfNights;
 
 
@@ -15,20 +15,20 @@ public class ReservationCreateRequest {
         this.userId = userId;
     }
 
-    public String getRatePlan() {
-        return ratePlan;
+    public String getRatePlanId() {
+        return ratePlanId;
     }
 
-    public void setRatePlan(String ratePlan) {
-        this.ratePlan = ratePlan;
+    public void setRatePlanId(String ratePlanId) {
+        this.ratePlanId = ratePlanId;
     }
 
-    public String getRoomType() {
-        return roomType;
+    public String getRoomTypeId() {
+        return roomTypeId;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
+    public void setRoomTypeId(String roomTypeId) {
+        this.roomTypeId = roomTypeId;
     }
 
     public Integer getNumberOfNights() {

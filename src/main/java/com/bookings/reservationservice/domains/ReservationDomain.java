@@ -11,18 +11,16 @@ public class ReservationDomain {
     private String id;
     private String accountId;
     private String userId;
-    private Double nightlyRoomCharge;
     private String roomTypeId;
     private String ratePlanId;
     private Integer numberOfNights;
 
     public ReservationDomain() {}
 
-    public ReservationDomain(String accountId, String userId, Double nightlyRoomCharge, String roomTypeId,
+    public ReservationDomain(String accountId, String userId, String roomTypeId,
                              String ratePlanId, Integer numberOfNights) {
         this.accountId = accountId;
         this.userId = userId;
-        this.nightlyRoomCharge = nightlyRoomCharge;
         this.roomTypeId = roomTypeId;
         this.ratePlanId = ratePlanId;
         this.numberOfNights = numberOfNights;
@@ -50,14 +48,6 @@ public class ReservationDomain {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public Double getNightlyRoomCharge() {
-        return nightlyRoomCharge;
-    }
-
-    public void setNightlyRoomCharge(Double nightlyRoomCharge) {
-        this.nightlyRoomCharge = nightlyRoomCharge;
     }
 
     public String getRoomTypeId() {
@@ -90,8 +80,8 @@ public class ReservationDomain {
         reservationSummary.setAccountId(accountId);
         reservationSummary.setUserId(userId);
         reservationSummary.setRatePlanId(ratePlanId);
-        reservationSummary.setNightlyRoomCharge(nightlyRoomCharge);
-
+        reservationSummary.setRoomTypeId(roomTypeId);
+        reservationSummary.setNumberOfNights(numberOfNights);
         return reservationSummary;
     }
 }

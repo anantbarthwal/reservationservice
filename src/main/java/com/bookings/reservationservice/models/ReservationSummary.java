@@ -4,7 +4,6 @@ public class ReservationSummary {
     private String id;
     private String accountId;
     private String userId;
-    private Double nightlyRoomCharge;
     private String roomTypeId;
     private String ratePlanId;
     private Integer numberOfNights;
@@ -31,14 +30,6 @@ public class ReservationSummary {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public Double getNightlyRoomCharge() {
-        return nightlyRoomCharge;
-    }
-
-    public void setNightlyRoomCharge(Double nightlyRoomCharge) {
-        this.nightlyRoomCharge = nightlyRoomCharge;
     }
 
     public String getRoomTypeId() {
