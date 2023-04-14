@@ -38,6 +38,9 @@ public class ReservationHandler {
         HttpEntity<AccountCreateRequest> request = new HttpEntity<AccountCreateRequest>(accountCreateRequest, headers);
         ResponseEntity<Account> account = restTemplate.postForEntity(CREATE_ACCOUNT_URL, request, Account.class);
         String accountId = account.getBody().getId();
+        if(accountId == null) {
+            throw new RuntimeException("service down");
+        }
         ReservationDomain reservationDomain = new ReservationDomain(accountId, reservationCreateRequest.getUserId(),
                 reservationCreateRequest.getRoomTypeId(), reservationCreateRequest.getRatePlanId(), 2);
         return reservationRepository.save(reservationDomain).toModel();

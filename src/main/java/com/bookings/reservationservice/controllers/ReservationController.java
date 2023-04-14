@@ -14,15 +14,15 @@ public class ReservationController {
     @Autowired
     private ReservationHandler reservationHandler;
     @PostMapping("/create")
-    @CircuitBreaker(name= "accountRateBreaker", fallbackMethod = "accountRateFallBack")
+    /*@CircuitBreaker(name= "accountRateBreaker", fallbackMethod = "accountRateFallBack")*/
     public ReservationSummary createReservation(@RequestBody ReservationCreateRequest reservationCreateRequest) {
         return reservationHandler.createReservation(reservationCreateRequest);
     }
 
     // creating accountRateFallBack method for circuitBreaker
-    public ReservationSummary accountRateFallBack(ReservationCreateRequest reservationCreateRequest, Exception ex) {
+ /*   public ReservationSummary accountRateFallBack(ReservationCreateRequest reservationCreateRequest, Exception ex) {
         ReservationSummary reservationSummary = new ReservationSummary();
         reservationSummary.setUserId("this is fallback method");
         return reservationSummary;
-    }
+    }*/
 }
